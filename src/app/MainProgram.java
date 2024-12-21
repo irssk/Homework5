@@ -68,7 +68,7 @@ public class MainProgram {
 
         Integer[] array = {1, 2, 3};
         System.out.println("Converted to list: " + toList(array));
-        // Task 3: findUnique
+
         List<Integer> numList = Arrays.asList(1, 2, 2, 3, 4, 4, 5);
         System.out.println("Unique numbers: " + findUnique(numList));
 
