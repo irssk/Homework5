@@ -1,7 +1,6 @@
 package phonebook;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class TelephoneDirectory {
     private List<Record> records;
@@ -31,5 +30,23 @@ public class TelephoneDirectory {
             }
         }
         return matchingRecords.isEmpty() ? null : matchingRecords;
+    }
+
+    public void removeDuplicates() {
+        Set<Record> uniqueRecords = new HashSet<>(records);
+        records.clear();
+        records.addAll(uniqueRecords);
+    }
+
+    public void deleteByName(String name) {
+        records.removeIf(record -> record.getName().equalsIgnoreCase(name));
+    }
+
+    public void sortByName() {
+        records.sort(Comparator.comparing(Record::getName, String.CASE_INSENSITIVE_ORDER));
+    }
+
+    public List<Record> getAllRecords() {
+        return records;
     }
 }
